@@ -1,5 +1,5 @@
 -- Week 1: Recapping the basics.
--- Topics: SELECT, WHERE
+-- Topics: SELECT, WHERE, ORDER BY, INNER JOINS
 -- Datasets: SQLBolt tutorials
 
 -- Movie Dataset
@@ -35,7 +35,17 @@ OFFSET 5;
 
 SELECT *
 FROM north_american_cities
-WHERE Longitude < (SELECT Longitude
+WHERE Longitude < (SELECT Longitude               -- This could be done by searching for Chicago first and inputting the exact correct Longitude, but this code is easier to reuse.
         FROM north_american_cities
         WHERE City = "Chicago")
 ORDER BY Longitude ASC;
+
+-- Movies Dataset - Accessing two tables
+-- Query 6: Show all movies, where international box office sales exceed domestic ones.
+-- This would be very useful when considering which IPs are popular abroad.
+
+SELECT Title, Domestic_sales, International_sales 
+FROM movies
+INNER JOIN boxoffice
+ON movies.id = boxoffice.movie_id
+WHERE international_sales > domestic_sales;
