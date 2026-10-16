@@ -1,4 +1,4 @@
-# Week 1 - Back to basics
+# Week 1 - Back to Basics
 
 As I have decided to work through the tutorials on SQLBolt, and it's been a little while since I used SQL, I decided to start from the start and work my way through.
 
