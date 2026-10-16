@@ -16,6 +16,7 @@ knowledge is exactly why I'm doing this review, which I find encouraging.
 
 One of the practice questions on SQLBolt asked me to find all North American cities west of Chicago, and list them from South to North. The easiest way to have done this would be
 to write a simple query to find the longitude of Chicago, which I knew was present in the dataset, and then write a second query including that static number to get the data I wanted.
+
 However, If I was working in a professional setting I might need to repeat queries like this for different cities, so I thought it would be simpler in the long run to write one that
 was easily repeatable. This led me to think about how I could nest queries within one another, to include that first simple query within the body of the main query, like this:
 
