@@ -30,3 +30,14 @@ WHERE trades.status = 'Completed'                -- Adding this WHERE clause fil
 GROUP BY city
 ORDER BY completed_trades DESC
 LIMIT 3;
+
+-- Query 4: Given two tables contaiining data about Facebook pages and their respective likes,
+-- find a list of pages without any likes, listed in ascending order by page ID.
+-- A response to the DataLemur question at https://datalemur.com/questions/sql-page-with-no-likes
+
+SELECT pages.page_id
+FROM pages
+FULL JOIN page_likes                   -- A full join here ensures all data from both tables will be joined.
+ON pages.page_id = page_likes.page_id  -- Any page IDs with no likes will still be displayed as null values.
+WHERE liked_date ISNULL                -- Filtering to include only null values in the liked_date column then only includes those entries with no likes.
+ORDER BY page_id ASC;
