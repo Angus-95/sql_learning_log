@@ -8,7 +8,7 @@ This week, I practiced simple queries using SELECT, FROM, WHERE, ORDER BY and LI
 
 ## New Skills
 
-This has been more of a revision week, and I found writing these simple queries to be rather straightforward. OFFSET however is something that wasn't covered in my previosu course,
+This has been more of a revision week, and I found writing these simple queries to be rather straightforward. OFFSET however is something that wasn't covered in my previous course,
 and it was interesting thinking of ways this could be applied in a practical sense. For example separating data into pages for use on a website. Smoothing out these gaps in my 
 knowledge is exactly why I'm doing this review, which I find encouraging.
 
