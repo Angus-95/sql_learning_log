@@ -34,3 +34,22 @@ ORDER BY total_goals DESC;
 --- Arsenal have the highest goals tally with 1880, while Bradford have the least with only 30. However, Arsenal have been present in all 26 seasons, so have many more games
 --- in which to score their goals than Bradford, who were only in the league for one season.
 --- For this query I will need to build on my previous work by also tallying the number of games each team has played, in order to find the average.
+--- Answer: Manchester City have the highest average goals, Huddersfield Town the lowest. This reflects how, despite not being in the division at the start of the century, 
+--- Man City's takeover in 2008 had a huge effect on their performances.
+
+SELECT 
+    home.hometeam, (home.total_home + away.total_away) AS total_goals,
+    (home.home_games + away.away_games) AS total_games,
+    (home.total_home + away.total_away)/(home.home_games + away.away_games) AS avg_goals
+FROM (
+    SELECT Hometeam, SUM(homegoal) AS total_home, COUNT(hometeam) AS home_games
+    FROM epl_match_data
+    GROUP BY hometeam
+) AS home
+JOIN (
+    SELECT awayteam, sum(awaygoal) AS total_away, COUNT(awayteam) AS away_games
+    FROM epl_match_data
+    GROUP BY awayteam
+) AS away
+ON home.hometeam = away.awayteam
+ORDER BY avg_goals DESC;
